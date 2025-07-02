@@ -8,18 +8,34 @@ import type { Comment } from '../types/types';
 const Comments: React.FC = () => {
   // State to store fetched comments
   const [comments, setComments] = useState<Comment[]>([]);
+  // State to hold any error messages, initially an empty string
+  const [error, setError] = useState<string>(''); 
+  // State to hold the loading status, initially false
+  const [loading, setLoading] = useState<boolean>(false); 
 
   // useEffect runs once when the component mounts to fetch comments for a specific post
   useEffect(() => {
+    setLoading(true);
+
     getPostComments(1) // Fetch comments 
-      .then(data => setComments(data)) // Update state with fetched comments
-      .catch(error => console.error(error));
+      .then(data => {
+        setComments(data); // Update the posts state with fetched data
+      }) 
+      .catch(error => {
+        console.error(error);
+        setError('Oops! We couldn’t load the comments right now. Please try again later...');
+      })
+      .finally(() => {
+        setLoading(false); // Set loading to false after fetching data
+      }); 
   }, []); // Runs only once on mount
 
   return (
     <div>
       <h2>Comments for Post: </h2>
-      {comments.length > 0 ? (
+      {loading && <p>Loading comments...</p>}
+      {error && <p style={{ color: 'red' }}>Error: {error}</p>}
+      {!loading && !error && comments.length > 0 && (
         <ul>
           {comments.map(comment => (
             <li key={comment.id}>
@@ -29,8 +45,6 @@ const Comments: React.FC = () => {
             </li>
           ))}
         </ul>
-      ) : (
-        <p>Loading comments...</p>
       )}
     </div>
   );

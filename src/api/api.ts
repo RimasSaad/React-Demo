@@ -11,7 +11,7 @@ const BASE_URL = 'https://jsonplaceholder.typicode.com';
 // returns Promise<Post[]> - a promise that returns an array of posts
 export async function getAllPosts(): Promise<Post[]> {
   try {
-    const response = await axios.get<Post[]>(`${BASE_URL}/posts`);
+    const response = await axios.get(`${BASE_URL}/posts`, { timeout: 10000 }); // 10 seconds
     console.log('All Posts:', response.data); 
     return response.data; 
   } catch (error) {
@@ -26,7 +26,7 @@ export async function getAllPosts(): Promise<Post[]> {
 
 export async function getPostById(id: number): Promise<Post> {
   try {
-    const response = await axios.get<Post>(`${BASE_URL}/posts/${id}`);
+    const response = await axios.get<Post>(`${BASE_URL}/posts/${id}`, { timeout: 10000 }); // 10 seconds
     console.log(`Post ${id}:`, response.data);
     return response.data;
   } catch (error) {
@@ -41,7 +41,7 @@ export async function getPostById(id: number): Promise<Post> {
 
 export async function getPostComments(postId: number): Promise<Comment[]> {
   try {
-    const response = await axios.get<Comment[]>(`${BASE_URL}/posts/${postId}/comments`);
+    const response = await axios.get<Comment[]>(`${BASE_URL}/posts/${postId}/comments`, { timeout: 10000 }); // 10 seconds
     console.log(`Comments for Post ${postId}:`, response.data);
     return response.data;
   } catch (error) {
