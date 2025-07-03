@@ -25,4 +25,6 @@ This project uses **React**, **TypeScript**, and **Vite** to build a fast, moder
   - components/ for React components
   - types/ for TypeScript interfaces
 - Uses conditional rendering and buttons in App.tsx to display each component as needed
+- Implements friendly error handling with user-friendly messages for failed requests  
+- Implements loading states to indicate data is being fetched, enhancing user experience
 
