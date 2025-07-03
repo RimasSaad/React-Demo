@@ -7,14 +7,18 @@ This project uses **React**, **TypeScript**, and **Vite** to build a fast, moder
 - Build tool: Vite
 - HTTP client: Axios
 - API: JSONPlaceholder
-- It fetches and displays posts, a single post by ID, and comments for a specific post in the browser, using clean React component-based architecture.
+- 
+## The app fetches and displays:
+- All posts  
+- A single post by user-input ID  
+- Comments for a post by user-input ID
 
 ## Main Features
 - Uses useState and useEffect React hooks
 - Implements three API functions:
   - Fetch all posts
-  - Fetch a single post by ID
-  - Fetch comments for a post ID
+  - Fetch single post by user-input ID
+  - Fetch comments by user-input post ID
 - Displays data dynamically using separate React components:
   - Posts component
   - PostDetail component
@@ -24,7 +28,7 @@ This project uses **React**, **TypeScript**, and **Vite** to build a fast, moder
   - api/ for API functions
   - components/ for React components
   - types/ for TypeScript interfaces
-- Uses conditional rendering and buttons in App.tsx to display each component as needed
+- Uses buttons and user input fields to dynamically fetch and display all posts or post or comments by ID
 - Implements friendly error handling with user-friendly messages for failed requests  
 - Implements loading states to indicate data is being fetched, enhancing user experience
 
