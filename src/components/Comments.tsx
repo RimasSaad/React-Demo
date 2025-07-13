@@ -1,7 +1,7 @@
 // Comments.tsx
 // This component fetches and displays comments for a specific post ID using getPostComments API function.
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { getPostComments } from '../api/api';
 import type { Comment } from '../types/types';
 

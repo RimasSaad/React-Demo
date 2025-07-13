@@ -1,7 +1,7 @@
 // App.tsx
 // Root component of the app. It renders the main heading and the Posts component.
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Posts from './components/Posts';
 import PostDetail from './components/PostDetail';
 import Comments from './components/Comments';

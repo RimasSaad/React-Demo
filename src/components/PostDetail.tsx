@@ -1,7 +1,7 @@
 // PostDetail.tsx
 // This component fetches and displays a single post by ID using getPostById API function.
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { getPostById } from '../api/api';
 import type { Post } from '../types/types';
 
